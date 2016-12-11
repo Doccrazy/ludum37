@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="objects.svg"
+   inkscape:version="0.91 r13725"
+   version="1.1"
+   id="svg4180"
+   viewBox="0 0 744.09448819 1052.3622047"
+   height="297mm"
+   width="210mm">
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="1017"
+     inkscape:window-width="1920"
+     showgrid="false"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     inkscape:cy="768.21978"
+     inkscape:cx="283.5014"
+     inkscape:zoom="1.979899"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <defs
+     id="defs4182" />
+  <metadata
+     id="metadata4185">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\head.png"
+       sodipodi:nodetypes="sssssssss"
+       inkscape:connector-curvature="0"
+       id="rect4736"
+       d="m 203.1409,442.82867 c 24.45148,4.47485 49.42711,4.58933 74.96821,0 1.22715,-0.2205 2.28827,0.70749 2.28827,1.58628 l 0,7.40265 c 0,0.87881 -1.05144,1.39353 -2.28827,1.58629 -25.3572,3.95192 -50.33742,3.85334 -74.96821,0 -1.2366,-0.19346 -2.28827,-0.70748 -2.28827,-1.58629 l 0,-7.40265 c 0,-0.87879 1.06255,-1.8106 2.28827,-1.58628 z"
+       style="opacity:0.98000004;fill:#784421;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.76208651;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\head.png"
+       sodipodi:nodetypes="sssssssssss"
+       inkscape:connector-curvature="0"
+       id="path4728"
+       d="m 269.39646,470.57648 c 0,1.92064 2.96528,3.80072 2.65948,5.62541 -0.35514,2.11917 -2.49159,2.82433 -3.33286,4.7708 -0.63041,1.45859 -1.36103,2.88406 -2.18108,4.26103 -0.15775,0.26489 -3.43873,-1.79302 -7.70125,-3.23298 -5.43688,-1.83668 -12.1348,-3.17179 -12.35472,-2.84506 -0.39083,0.58065 18.13082,9.00793 17.70868,9.56629 -5.75578,7.61317 -14.33909,13.03667 -23.48042,13.03667 -15.84072,0 -28.68216,-13.96073 -28.68216,-31.18216 0,-17.22143 12.84144,-31.18216 28.68216,-31.18216 15.84072,-10e-6 28.68217,13.96072 28.68217,31.18216 z"
+       style="opacity:0.98000004;fill:#ffa771;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.97853208;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\head.png"
+       inkscape:connector-curvature="0"
+       id="path4744"
+       d="m 223.57143,442.00506 c 0,0 -2.32143,-18.57142 16.07143,-18.57142 18.39285,0 15.71428,18.75 15.71428,18.75 l -20,3.21428 z"
+       style="fill:#e9c6af;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\head.png"
+       sodipodi:nodetypes="cscsc"
+       inkscape:connector-curvature="0"
+       id="path4742"
+       d="m 210.71429,444.14792 c 0,0 15.71428,4.28571 29.10714,4.10714 13.39286,-0.17857 29.10714,-3.57143 29.10714,-3.57143 0,0 -14.28572,-3.92857 -27.67857,-4.46428 -13.39286,-0.53572 -30.53571,3.92857 -30.53571,3.92857 z"
+       style="fill:#e9c6af;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\head.png"
+       ry="3.7924254"
+       rx="6.7931437"
+       cy="457.65417"
+       cx="254.30058"
+       id="path4746"
+       style="opacity:0.98000004;fill:#f9f9f9;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.97853208;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\head.png"
+       ry="1.3343718"
+       rx="1.811505"
+       cy="457.86484"
+       cx="257.31973"
+       id="path4748"
+       style="opacity:0.98000004;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.97853208;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\head.png"
+       inkscape:connector-curvature="0"
+       id="path4752"
+       d="m 223.39286,436.82649 c 0,0 8.21428,-1.42857 16.42857,-1.25 8.21428,0.17857 15.53571,1.78571 15.53571,1.78571 l 0,4.28572 c 0,0 -11.78571,-1.60715 -16.42857,-1.78572 -4.64286,-0.17857 -15.71428,1.60715 -15.71428,1.60715 l 0.17857,-4.10715"
+       style="fill:#ac9d93;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\body.png"
+       sodipodi:nodetypes="sssssssss"
+       inkscape:connector-curvature="0"
+       id="rect4764"
+       d="m 228.02619,491.86542 25.4402,0 c 1.27026,0 2.84073,1.50381 2.29289,3.0066 -9.98675,27.39485 -14.38866,39.40247 0,61.99322 0.81427,1.27843 -1.02263,3.0066 -2.29289,3.0066 l -25.4402,0 c -1.27027,0 -2.2929,-1.34094 -2.2929,-3.0066 l 0,-61.99322 c 0,-1.66566 1.02263,-3.0066 2.2929,-3.0066 z"
+       style="opacity:0.98000004;fill:#ac9d93;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.05024302;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\head.png"
+       inkscape:connector-curvature="0"
+       id="path5399"
+       d="m 250.71429,452.18363 c 0.44642,0.0893 12.5,4.64286 12.5,4.64286"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\head.png"
+       inkscape:connector-curvature="0"
+       id="path5402"
+       d="m 262.32144,450.75506 c 0,0 -11.42857,-1.25 -15,0.17857 -3.57143,1.42857 -8.03572,5.17857 -11.60715,5.53571 -3.57142,0.35715 -10.35714,-0.53571 -11.42857,1.60715 -1.07143,2.14285 -6.78571,13.03571 -8.75,11.25 -1.96428,-1.78572 -6.07143,-2.67858 -6.78571,-3.39286 -0.71429,-0.71429 -0.35714,-9.28572 0.35714,-9.64286 0.71429,-0.35714 2.67857,-8.57143 3.75,-8.57143 1.07143,0 5,-1.78571 5,-1.78571 0,0 5.71429,1.42857 10,1.78571 4.28572,0.35715 17.85714,1.07143 22.5,0.35715 4.64286,-0.71429 8.75,-1.60715 8.75,-1.60715 z"
+       style="fill:#502d16;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\foot.png"
+       ry="5"
+       rx="5"
+       y="553.82794"
+       x="299.4726"
+       height="6.7857141"
+       width="16.428572"
+       id="rect5404"
+       style="opacity:0.98000004;fill:#502d16;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.04999995;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       sodipodi:nodetypes="sssssssss"
+       inkscape:connector-curvature="0"
+       id="rect5320"
+       d="m 147.89408,495.23414 5.6494,0 c 1.46056,0 3.12141,1.25871 2.63639,2.63638 -2.92572,8.31036 -2.75461,15.26587 0,21.09109 0.62437,1.32038 -1.17583,2.63638 -2.63639,2.63638 l -5.6494,0 c -1.46055,0 -3.11452,-1.25631 -2.63638,-2.63638 2.43574,-7.03036 2.17739,-14.06072 0,-21.09109 -0.4321,-1.39517 1.17583,-2.63638 2.63638,-2.63638 z"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       ry="5"
+       rx="5"
+       y="495.57013"
+       x="119.60646"
+       height="8.7436953"
+       width="81.055984"
+       id="rect5316"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.55144525;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       sodipodi:nodetypes="sssssssss"
+       inkscape:connector-curvature="0"
+       id="rect5318"
+       d="m 121.53024,495.23414 4.89614,0 c 1.46056,0 3.01774,1.22649 2.63639,2.63638 -2.13403,7.88976 -2.47679,14.95277 0,20.71446 0.57681,1.34183 -1.17583,2.63638 -2.63639,2.63638 l -4.89614,0 c -1.46056,0 -2.95576,-1.21117 -2.63639,-2.63638 1.43973,-6.42491 1.74971,-13.2264 0,-20.71446 -0.33233,-1.42224 1.17583,-2.63638 2.63639,-2.63638 z"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       inkscape:connector-curvature="0"
+       id="path5367"
+       d="m 210.6024,503.51993 c 0,0 -1.88314,-1.50651 -0.94157,-4.1429 0.94157,-2.63638 1.12988,-2.82469 1.12988,-2.82469 0,0 2.07145,2.44807 1.5065,3.95457 -0.56493,1.50651 -1.69481,3.01302 -1.69481,3.01302 z"
+       style="fill:#edf000;fill-opacity:1;fill-rule:evenodd;stroke:#912900;stroke-width:0.52727705px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       inkscape:connector-curvature="0"
+       id="path5322"
+       d="m 177.27095,503.51993 13.93519,6.77927 18.07807,0 0,-7.90915 3.013,0 0,10.92216 -24.10409,-0.37662 -14.68843,-8.66241 z"
+       style="fill:#4d4d4d;fill-rule:evenodd;stroke:#000000;stroke-width:0.52727705px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.6006626"
+       cy="499.28287"
+       cx="162.6767"
+       id="path5324"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.4123492"
+       cy="501.91928"
+       cx="167.1962"
+       id="path5329"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.6006626"
+       cy="498.90628"
+       cx="171.15076"
+       id="path5331"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.4123492"
+       cy="500.97769"
+       cx="177.55344"
+       id="path5333"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       ry="1.1298794"
+       rx="1.8281833"
+       cy="497.68222"
+       cx="176.08612"
+       id="path5335"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.1298794"
+       cy="502.20175"
+       cx="174.06961"
+       id="path5337"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.506506"
+       cy="498.05887"
+       cx="182.16708"
+       id="path5339"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.506506"
+       cy="502.20175"
+       cx="181.41385"
+       id="path5341"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.4123492"
+       cy="502.10757"
+       cx="186.78076"
+       id="path5343"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="0.84740955"
+       cy="500.22446"
+       cx="184.521"
+       id="path5345"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.4123492"
+       cy="498.15298"
+       cx="187.15738"
+       id="path5347"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.3181927"
+       cy="502.20175"
+       cx="192.14771"
+       id="path5349"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="0.94156617"
+       cy="499.75363"
+       cx="189.69962"
+       id="path5351"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       ry="1.1298794"
+       rx="1.8281833"
+       cy="498.24716"
+       cx="193.22263"
+       id="path5353"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="0.94156617"
+       cy="499.18869"
+       cx="198.17374"
+       id="path5355"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       ry="1.3711374"
+       rx="0.84740955"
+       cy="501.87802"
+       cx="196.19644"
+       id="path5357"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.0357229"
+       cy="502.29593"
+       cx="160.98184"
+       id="path5359"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="1.224036"
+       cy="497.77634"
+       cx="166.44296"
+       id="path5361"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <circle
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       r="0.84740955"
+       cy="502.29593"
+       cx="163.99487"
+       id="path5363"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\flamethrower.png"
+       ry="0.56493968"
+       rx="0.91409165"
+       cy="497.87051"
+       cx="157.65887"
+       id="path5365"
+       style="opacity:0.98000004;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.63273251;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\player\hand.png"
+       ry="3.5355339"
+       rx="8.4600277"
+       cy="546.52832"
+       cx="185.74179"
+       id="path5493"
+       style="opacity:0.98000004;fill:#ffb380;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.04999995;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\weapons\whip.png"
+       transform="matrix(0.80770091,-0.58959243,0.58959243,0.80770091,-443.61254,337.50901)"
+       id="g5517">
+      <path
+         style="fill:#ffeeaa;fill-rule:evenodd;stroke:#000000;stroke-width:0.21354052px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 326.51284,518.47624 c 0.67473,0.71117 1.2881,1.70684 1.04275,1.84907 -0.24534,0.14225 1.28807,1.04307 -1.47209,0.52153 -2.76018,-0.52153 -3.00553,-0.23705 -3.86425,-1.28013 -0.85871,-1.04306 -1.59476,-1.13789 -0.55203,-2.22837 1.04274,-1.09048 2.6375,-2.60767 5.02964,-2.03873 2.39216,0.56895 2.6375,0.23706 3.61891,1.42237 0.98138,1.18531 2.33081,2.7025 2.57615,3.79298 0.24534,1.09049 2.08547,2.37061 0.12273,3.41368 -1.96279,1.04307 -2.20814,3.22405 -7.78982,1.80167 -5.58168,-1.42237 -5.52034,0.18964 -7.17646,-3.0818 -1.65609,-3.27144 -4.17092,-6.87477 -2.69884,-8.29715 1.4721,-1.42237 3.98693,-2.46543 7.66716,-3.17662 3.68022,-0.71119 2.82151,-2.93956 8.09651,-0.14224 5.27499,2.79734 5.88836,0.61637 7.11511,5.54724 1.22674,4.93088 2.51482,5.16793 1.22674,7.63338 -1.28808,2.46544 1.04274,4.2671 -4.35495,4.2671 -5.39766,0 -3.9869,0.47413 -10.18197,-1.04307 -6.19504,-1.5172 -6.25638,1.5172 -9.99794,-3.0818 -3.74157,-4.59899 -6.62442,-7.82302 -2.39216,-11.56859 4.23227,-3.74557 2.14681,-3.74557 8.28053,-4.2671 6.1337,-0.52154 8.46453,-0.94825 13.00348,-0.7112 4.53894,0.23707 6.19504,-2.70249 8.52586,3.0818 2.33081,5.78431 4.10958,5.73689 3.00553,10.85741 -1.10409,5.12054 0,6.92221 -3.61891,8.29716 -3.61889,1.37496 -1.90146,2.93955 -11.16336,2.3232 -9.26191,-0.61636 -12.39011,-1.13789 -15.3343,-2.18096 -2.94417,-1.04307 -6.07238,-1.94391 -6.01104,-2.60768 0.0613,-0.66377 2.26947,-0.7586 2.57617,-0.56894 0.30668,0.18965 1.65609,0.99564 3.1282,1.28012 1.47209,0.28448 1.47209,0.37931 3.43487,0.71119 1.96279,0.33189 2.88285,0.14224 6.37906,0.7586 3.49623,0.61636 5.27501,1.1853 7.05378,1.1379 1.77878,-0.0474 3.3122,0.71117 4.47761,0.18964 1.16541,-0.52154 0.49071,-0.61636 2.20815,-1.23272 1.71744,-0.61636 1.84011,-0.85342 2.94418,-2.18096 1.10407,-1.32755 1.34941,-0.90084 2.08547,-3.17662 0.73603,-2.27579 1.22674,-3.12922 1.1654,-4.69383 -0.0613,-1.5646 -2.08546,-3.1292 -2.51482,-3.79298 -0.42937,-0.66376 -2.26949,-3.8878 -2.76018,-4.50417 -0.49068,-0.61636 0.18401,-1.32753 -1.53344,-1.84907 -1.71743,-0.52154 -0.55202,-0.28448 -3.55754,-0.28448 -3.00552,0 -5.94972,-0.28447 -6.68575,-0.33188 -0.73606,-0.0474 -0.18401,-0.0949 -2.02412,-0.0949 -1.84013,0 -0.73607,-0.3793 -2.76017,0.14223 -2.02413,0.52153 -2.20815,0.66377 -3.86425,0.94825 -1.65611,0.28447 -1.4721,0.28447 -1.84013,0.61635 -0.36801,0.33189 -0.42935,-0.0474 -1.41075,0.99567 -0.98139,1.04307 -0.79737,0.71118 -1.28808,1.61202 -0.4907,0.90083 -0.55203,0.80601 -0.9814,1.70683 -0.42935,0.90084 -0.55202,1.09048 -0.6747,1.8965 -0.12273,0.80601 -0.24535,1.46978 0.12273,1.89649 0.36803,0.42671 0.49069,0.66377 1.04272,1.23272 0.55204,0.56894 1.47209,1.84908 1.71744,2.37061 0.24536,0.52154 0.73606,1.42237 1.10408,1.84908 0.36801,0.42671 -0.61338,0.23706 1.34941,0.94825 1.96278,0.71118 0.92007,0.56894 2.33081,0.90083 1.41075,0.33188 0.18402,0.23706 1.96279,0.47412 1.77878,0.23706 1.71745,0.28447 3.06687,0.33188 1.3494,0.0474 1.16539,0.0474 3.55755,0.18967 2.39214,0.14223 2.20814,0.14223 2.88285,0.18964 0.67471,0.0474 -0.18401,0.23707 1.10407,0.0474 1.28808,-0.18965 1.22674,-0.0949 2.02411,-0.66377 0.7974,-0.56895 0.98141,0.0474 1.90147,-1.04307 0.92004,-1.09047 1.41075,-0.52154 0.92004,-2.89215 -0.49068,-2.37061 -0.24534,-1.99132 -0.79737,-3.65075 -0.55203,-1.65943 -0.30668,-1.70684 -1.47209,-3.36627 -1.16541,-1.65943 0.12273,-1.46978 -1.47208,-1.9439 -1.59478,-0.47412 -1.9628,-0.66377 -3.98693,-0.90083 -2.02413,-0.23706 -1.84012,-0.42672 -4.10959,-0.47413 -2.26947,-0.0474 -1.59476,-0.28447 -3.43488,0.14224 -1.84011,0.4267 -2.33082,0.28447 -3.06686,0.94824 -0.73604,0.66378 -0.85872,0.99567 -1.10408,1.94391 -0.24534,0.94825 -0.4907,1.13789 -0.30668,2.84474 0.18401,1.70684 -0.55203,2.18096 0.73606,3.5085 1.28806,1.32755 1.71743,1.75426 2.94418,2.03873 1.22674,0.28448 2.51482,0.90084 3.25086,0.90084 0.73605,0 4.1096,-0.0474 4.1096,-0.0474 0,0 1.16541,-0.3319 1.34941,-0.90083 0.18401,-0.56895 0.4907,-0.90083 0.24535,-1.56461 -0.24535,-0.66377 -0.24535,-1.04307 -0.61337,-2.22838 -0.36802,-1.1853 -0.42936,-1.61201 -0.61338,-1.94391 -0.18401,-0.33187 -1.04273,-1.46977 -2.20812,-1.5646 -1.16541,-0.0949 -1.41077,-0.18964 -2.02413,0 -0.61338,0.18965 -1.34943,0.42672 -1.77878,0.85343 -0.42937,0.4267 -0.79738,1.13789 -0.4907,1.5172 0.30668,0.37928 0.67471,0.8534 1.04273,0.99564 0.36803,0.14224 1.4721,0.23707 1.53344,0.0475 0.0613,-0.18964 -1.53344,-1.9439 -0.73607,-1.84907 0.79739,0.0949 1.6561,0.47412 1.6561,0.47412 z"
+         id="path5513"
+         inkscape:connector-curvature="0" />
+      <rect
+         style="opacity:0.98000004;fill:#803300;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.49091405;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5515"
+         width="13.541917"
+         height="2.049253"
+         x="389.79645"
+         y="436.85971"
+         rx="0.39788923"
+         ry="0.39884624"
+         transform="matrix(0.96980485,0.24388227,-0.15699292,0.98759973,0,0)" />
+    </g>
+    <g
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\bat\wing.png"
+       transform="matrix(1.1901443,0,0,1.1901443,-46.31193,-104.80124)"
+       id="g5550">
+      <path
+         style="fill:#deaa87;fill-rule:evenodd;stroke:#000000;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 347.23994,487.43439 19.69797,-5.05076 13.38452,5.3033 -1.51523,11.86929 -9.09137,-5.05076 -4.79822,-7.3236 -7.07107,7.3236 -10.10153,-1.01015 -4.04061,-4.04061 z"
+         id="path5523"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 357.594,494.25292 -6.81853,-8.08122"
+         id="path5525"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 364.72821,487.43439 1.95716,-4.79822"
+         id="path5527"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 366.68537,482.38363 3.03046,12.12183"
+         id="path5529"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 366.43284,482.13109 12.12183,16.66752"
+         id="path5531"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 351.15428,486.61364 -3.40927,6.81853"
+         id="path5533"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 351.28055,486.61364 13.25825,0.82075"
+         id="path5535"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\bat\head.png"
+       sodipodi:nodetypes="ccccccscsc"
+       inkscape:connector-curvature="0"
+       id="path5521"
+       d="m 342.7149,476.55228 c -5.72415,-4.8e-4 -10.36512,3.05195 -10.36599,6.81783 8.7e-4,3.76589 4.64184,6.81832 10.36599,6.81784 5.72249,-10e-4 10.36089,-3.05303 10.36175,-6.81784 -8.6e-4,-3.7648 -4.63926,-6.81677 -10.36175,-6.81783 z m -7.2108,9.09247 c 0,0 4.48353,0.76904 7.18367,0.76904 2.70013,0 7.09148,-0.14213 7.09148,-0.14213 0,0 -1.112,2.16913 -4.19787,1.97626 -3.08588,-0.1929 -10.07728,-2.60308 -10.07728,-2.60308 z"
+       style="opacity:0.98000004;fill:#aa4400;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.97204798;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\bat\head.png"
+       ry="1.6393667"
+       rx="1.8322333"
+       cy="481.7869"
+       cx="339.12152"
+       id="path5540"
+       style="opacity:0.98000004;fill:#deaa87;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.64803201;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\bat\head.png"
+       ry="1.4465001"
+       rx="1.6393667"
+       cy="481.59399"
+       cx="346.64334"
+       id="path5542"
+       style="opacity:0.98000004;fill:#deaa87;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.64803201;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <ellipse
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\bat\head.png"
+       style="opacity:0.98000004;fill:#deaa87;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.64803201;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="ellipse5544"
+       cx="346.64334"
+       cy="481.59399"
+       rx="1.6393667"
+       ry="1.4465001" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\bat\head.png"
+       inkscape:connector-curvature="0"
+       id="path5546"
+       d="m 337.38574,479.66534 4.53238,2.07333"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.08005333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="399"
+       inkscape:export-xdpi="399"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\bat\head.png"
+       inkscape:connector-curvature="0"
+       id="path5548"
+       d="m 348.42737,479.61712 -4.33951,1.68759"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.08005333;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       style="opacity:0.98000004;fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:30;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14322"
+       width="646.42859"
+       height="118.57143"
+       x="10.714286"
+       y="235.21933" />
+    <g
+       id="g16449"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets\lava.png"
+       inkscape:export-xdpi="174.37863"
+       inkscape:export-ydpi="174.37863">
+      <path
+         sodipodi:nodetypes="cssssssssssssssssssssssssssssssccssssssssssssssssssssssssssssssc"
+         inkscape:connector-curvature="0"
+         inkscape:export-ydpi="399"
+         inkscape:export-xdpi="399"
+         inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets\lava.png"
+         style="opacity:0.98000004;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 582.14283,287.36222 c -5.67588,1.54425 -11.35176,3.07773 -17.02765,4.14167 -5.67588,1.06394 -11.35176,1.64349 -17.02765,1.56528 -5.67588,-0.0782 -11.35176,-0.81311 -17.02764,-1.98483 -5.67589,-1.17171 -11.35177,-2.7639 -17.02765,-4.30023 -5.67589,-1.53633 -11.35177,-2.99536 -17.02765,-3.94061 -5.67589,-0.94525 -11.35177,-1.36352 -17.02765,-1.12967 -5.67588,0.23384 -11.35177,1.11653 -17.02765,2.384 -5.67588,1.26746 -11.35177,2.90202 -17.02765,4.41466 -5.67588,1.51265 -11.35177,2.88227 -17.02765,3.69912 -5.67588,0.81686 -11.35176,1.06955 -17.02765,0.68248 -5.67588,-0.38708 -11.35176,-1.40851 -17.02765,-2.75872 -5.67588,-1.35021 -11.35176,-3.01037 -17.02765,-4.4838 -5.67588,-1.47343 -11.35176,-2.73958 -17.02764,-3.41966 -5.67589,-0.68009 -11.35177,-0.7646 -17.02765,-0.22828 -5.67589,0.53633 -11.35177,1.68602 -17.02765,3.10512 -5.67589,1.41911 -11.35177,3.08782 -17.02765,4.50693 -5.67588,1.4191 -11.35177,2.56879 -17.02765,3.10512 -5.67588,0.53633 -11.35177,0.45181 -17.02765,-0.22827 -5.67588,-0.68008 -11.35177,-1.94623 -17.02765,-3.41967 -5.67588,-1.47343 -11.35176,-3.13358 -17.02765,-4.4838 -5.67588,-1.35021 -11.35176,-2.37164 -17.02765,-2.75871 -5.67588,-0.38707 -11.35176,-0.13438 -17.02765,0.68247 -5.67588,0.81686 -11.35176,2.18648 -17.02764,3.69912 -5.67589,1.51264 -11.35177,3.1472 -17.02765,4.41467 -5.67589,1.26746 -11.35177,2.15015 -17.02765,2.384 -5.67589,0.23384 -11.35177,-0.18443 -17.02765,-1.12968 -5.67588,-0.94524 -11.35177,-2.40428 -17.02765,-3.94061 -5.67588,-1.53633 -11.35177,-3.12852 -17.02765,-4.30023 -5.675883,-1.17172 -11.351766,-1.90661 -17.027649,-1.98482 -5.675883,-0.0782 -11.351766,0.50133 -17.027649,1.56527 -5.675883,1.06394 -11.351766,2.59742 -17.027649,4.14168 l -0.01622,21.52771 c 5.67588,-1.54426 11.35177,-3.07774 17.02765,-4.14168 5.675882,-1.06394 11.351765,-1.64349 17.027648,-1.56527 5.675883,0.0782 11.351766,0.8131 17.027649,1.98482 5.67588,1.17171 11.35177,2.7639 17.02765,4.30023 5.67588,1.53633 11.35177,2.99537 17.02765,3.94061 5.67588,0.94525 11.35176,1.36352 17.02765,1.12968 5.67588,-0.23385 11.35176,-1.11654 17.02765,-2.384 5.67588,-1.26747 11.35176,-2.90203 17.02765,-4.41467 5.67588,-1.51264 11.35176,-2.88226 17.02764,-3.69912 5.67589,-0.81685 11.35177,-1.06954 17.02765,-0.68247 5.67589,0.38707 11.35177,1.4085 17.02765,2.75871 5.67589,1.35022 11.35177,3.01037 17.02765,4.4838 5.67588,1.47344 11.35177,2.73959 17.02765,3.41967 5.67588,0.68008 11.35177,0.7646 17.02765,0.22827 5.67588,-0.53633 11.35177,-1.68602 17.02765,-3.10512 5.67588,-1.41911 11.35176,-3.08782 17.02765,-4.50693 5.67588,-1.4191 11.35176,-2.56879 17.02765,-3.10512 5.67588,-0.53632 11.35176,-0.45181 17.02765,0.22828 5.67588,0.68008 11.35176,1.94623 17.02764,3.41966 5.67589,1.47343 11.35177,3.13359 17.02765,4.4838 5.67589,1.35021 11.35177,2.37164 17.02765,2.75872 5.67589,0.38707 11.35177,0.13438 17.02765,-0.68248 5.67588,-0.81685 11.35177,-2.18647 17.02765,-3.69912 5.67588,-1.51264 11.35177,-3.1472 17.02765,-4.41466 5.67588,-1.26747 11.35177,-2.15016 17.02765,-2.384 5.67588,-0.23385 11.35176,0.18442 17.02765,1.12967 5.67588,0.94525 11.35176,2.40428 17.02765,3.94061 5.67588,1.53633 11.35176,3.12852 17.02765,4.30023 5.67588,1.17172 11.35176,1.90661 17.02764,1.98483 5.67589,0.0782 11.35177,-0.50134 17.02765,-1.56528 5.67589,-1.06394 11.35177,-2.59742 17.02765,-4.14167"
+         title="sin(x)/3"
+         id="path14262" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path16447"
+         d="m 55.02399,287.73984 -1.24915,0.26791 0,20.50335 1.229631,-0.3152 z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

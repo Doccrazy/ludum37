@@ -19,7 +19,7 @@ public class UiRoot extends UiBase<GameWorld, GameRenderer, GameInputListener> {
         toolbar.setVisible(false);
         left().add(toolbar);*/
 
-        add(new TimerLabel(world)).expandX().center();
+        //add(new TimerLabel(world)).expandX().center();
         //add(new ScoreLabel(world)).pad(5);
         row().expandY();
         stage.addActor(new IntroScreen(this));

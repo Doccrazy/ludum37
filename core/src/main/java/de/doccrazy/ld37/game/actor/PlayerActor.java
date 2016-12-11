@@ -1,21 +1,33 @@
 package de.doccrazy.ld37.game.actor;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.ParticleEffectPool;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.RayCastCallback;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.brashmonkey.spriter.Entity;
+import de.doccrazy.ld37.core.Resource;
+import de.doccrazy.ld37.data.CollCategory;
+import de.doccrazy.ld37.game.weapons.Flamethrower;
+import de.doccrazy.ld37.game.weapons.Rope;
+import de.doccrazy.ld37.game.weapons.Weapon;
 import de.doccrazy.ld37.game.world.GameWorld;
 import de.doccrazy.shared.game.actor.GroundContactAction;
 import de.doccrazy.shared.game.actor.ShapeActor;
+import de.doccrazy.shared.game.actor.SpriterActor;
 import de.doccrazy.shared.game.base.KeyboardMovementListener;
 import de.doccrazy.shared.game.base.MovementInputListener;
 import de.doccrazy.shared.game.world.BodyBuilder;
 import de.doccrazy.shared.game.world.GameState;
 import de.doccrazy.shared.game.world.ShapeBuilder;
 
-public class PlayerActor extends ShapeActor<GameWorld> {
-    private static final float RADIUS = 0.5f;
+public class PlayerActor extends SpriterActor<GameWorld> {
+    public static final float RADIUS = 0.5f;
     private static final float VELOCITY = 5f;
     private static final float TORQUE = 2f;
     private static final float JUMP_IMPULSE = 4f;
@@ -24,18 +36,26 @@ public class PlayerActor extends ShapeActor<GameWorld> {
     public static final float V_MAX_GLIDE_DROP = -2f;
     public static final float V_MAX_ROLL = 40f;
     public static final float GLIDE_V_SCALE = 0.01f;
+    public static final float MAX_WALL_ANGLE = MathUtils.cosDeg(15);
+    public static final int CLIMB_SPEED = 5;
 
     private MovementInputListener movement;
     private final GroundContactAction groundContact;
     private boolean moving;
     private float orientation = 1;
     private float lastJump = 0;
+    private RopeAnchor currentAnchor;
+    private boolean pinned;
+    private float pinDirection;
+    private Weapon weapon;
 
     public PlayerActor(GameWorld world, Vector2 spawn) {
-        super(world, spawn, false);
+        super(world, spawn, false, Resource.SPRITER.player, Resource.SPRITER::getDrawer);
+        player.setScale(0.008f);
         setzOrder(50);
         addAction(groundContact = new GroundContactAction());
         //setScaleX(Resource.GFX.mower.getWidth() / Resource.GFX.mower.getHeight());
+        setWeapon(new Flamethrower());
     }
 
     @Override
@@ -46,11 +66,26 @@ public class PlayerActor extends ShapeActor<GameWorld> {
     @Override
     protected BodyBuilder createBody(Vector2 spawn) {
         return BodyBuilder.forDynamic(spawn)
-                .fixShape(ShapeBuilder.circle(RADIUS)).fixProps(3f, 0.1f, 1f);
+                .fixShape(ShapeBuilder.circle(RADIUS)).fixProps(3f, 0.1f, 1f).fixFilter(CollCategory.PLAYER_BODY, (short)-1);
     }
 
     public void setupKeyboardControl() {
-        movement = new KeyboardMovementListener();
+        movement = new KeyboardMovementListener() {
+            @Override
+            public boolean keyDown(InputEvent event, int keycode) {
+                if (keycode == Input.Keys.E && (groundContact.isTouchingLeftWall() || groundContact.isTouchingRightWall())) {
+                    pinned = true;
+                    pinDirection = groundContact.isTouchingLeftWall() ? -1 : 1;
+                }
+                if (keycode == Input.Keys.NUM_1) {
+                    setWeapon(new Rope());
+                }
+                if (keycode == Input.Keys.NUM_2) {
+                    setWeapon(new Flamethrower());
+                }
+                return super.keyDown(event, keycode);
+            }
+        };
         addListener((InputListener)movement);
     }
 
@@ -65,10 +100,26 @@ public class PlayerActor extends ShapeActor<GameWorld> {
         } else {
             body.setAngularVelocity(0);
         }
+        if (world.getMouseTarget() != null) {
+            orientation = Math.signum(world.getMouseTarget().x - body.getPosition().x);
+        }
         if (body.getPosition().y + body.getFixtureList().get(0).getShape().getRadius() < world.getLevel().getBoundingBox().y) {
             kill();
         }
         super.doAct(delta);
+        animate();
+    }
+
+    private void animate() {
+        if (orientation != player.flippedX()) {
+            player.flipX();
+        }
+        if (world.getMouseTarget() != null) {
+            Vector2 aim = world.getMouseTarget().cpy().sub(body.getPosition());
+            weapon.setAim(aim.cpy().nor());
+            float aimAngle = aim.scl(orientation).angle();
+            player.setBone("weapon", aimAngle);
+        }
     }
 
     private void move(float delta) {
@@ -80,8 +131,15 @@ public class PlayerActor extends ShapeActor<GameWorld> {
 
         Vector2 v = body.getLinearVelocity();
 
-        if (mv.x == 0 || Math.signum(mv.x) == Math.signum(orientation)) {
-            //System.out.println(touchingFloor());
+        if (pinned) {
+            boolean touching = pinDirection < 0 ? groundContact.isTouchingLeftWall() : groundContact.isTouchingRightWall();
+            RayListener wallTop = new RayListener();
+            RayListener wallBottom = new RayListener();
+            world.box2dWorld.rayCast(wallTop, body.getPosition().cpy(), body.getPosition().add(pinDirection*RADIUS*1.5f, RADIUS*0.5f));
+            world.box2dWorld.rayCast(wallBottom, body.getPosition().cpy(), body.getPosition().add(pinDirection*RADIUS*1.5f, -RADIUS*0.5f));
+            body.setLinearVelocity(pinDirection, (wallTop.hit() && touching && mv.y > 0
+                    || wallBottom.hit() && touching && mv.y < 0) ? mv.y*CLIMB_SPEED : 0);
+        } else if (mv.x == 0 || Math.signum(mv.x) == Math.signum(orientation)) {
             if (groundContact.isTouchingFloor()) {
                 body.setAngularVelocity(-mv.x*VELOCITY);
             } else {
@@ -92,17 +150,18 @@ public class PlayerActor extends ShapeActor<GameWorld> {
         }
         boolean jump = movement.pollJump();
         if (stateTime - lastJump > GroundContactAction.FLOOR_CONTACT_TTL && jump) {
-            if (groundContact.isTouchingFloor()) {
-                addImpulse(0f, JUMP_IMPULSE);
+            if (groundContact.isTouchingFloor() || (currentAnchor != null && currentAnchor.isAttached()) || pinned) {
+                addImpulse(0f, currentAnchor == null ? JUMP_IMPULSE : JUMP_IMPULSE/2f);
                 lastJump = stateTime;
+                unattach();
                 //Resource.jump.play();
-            } else if (groundContact.isTouchingLeftWall() && mv.x > 0) {
+            }/* else if (groundContact.isTouchingLeftWall() && mv.x > 0) {
                 body.applyLinearImpulse(JUMP_IMPULSE/3f, JUMP_IMPULSE, body.getPosition().x, body.getPosition().y, true);
                 lastJump = stateTime;
             } else if (groundContact.isTouchingRightWall() && mv.x < 0) {
                 body.applyLinearImpulse(-JUMP_IMPULSE/3f, JUMP_IMPULSE, body.getPosition().x, body.getPosition().y, true);
                 lastJump = stateTime;
-            }
+            }*/
         }
     }
 
@@ -111,10 +170,10 @@ public class PlayerActor extends ShapeActor<GameWorld> {
         //floorContacts.clear();
     }
 
-    @Override
+    /*@Override
     public void draw(Batch batch, float parentAlpha) {
-        //drawRegion(batch, Resource.GFX.player[shapeState]);
-    }
+        drawRegion(batch, Resource.GFX.player);
+    }*/
 
     private void drawParticle(Batch batch, ParticleEffectPool.PooledEffect effect, Vector2 attach, float rotation) {
         Vector2 center = new Vector2(getX() + getOriginX(), getY() + getOriginY());
@@ -129,5 +188,56 @@ public class PlayerActor extends ShapeActor<GameWorld> {
     public void damage(float amount) {
         //world.postEvent(new ParticleEvent(body.getPosition().x, body.getPosition().y, Resource.GFX.particles.get("explosion")));
         kill();
+    }
+
+    public void fireRope() {
+        unattach();
+        currentAnchor = new RopeAnchor(world, body.getPosition(), world.getMouseTarget().sub(body.getPosition()).nor());
+        world.addActor(currentAnchor);
+    }
+
+    private void unattach() {
+        if (currentAnchor != null) {
+            currentAnchor.kill();
+            currentAnchor = null;
+        }
+        pinned = false;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        boolean firing = false;
+        if (this.weapon != null) {
+            firing = weapon.isFiring();
+            weapon.setFiring(false);
+            removeAction(weapon);
+        }
+        this.weapon = weapon;
+        addAction(weapon);
+        weapon.setFiring(firing);
+
+        Entity.CharacterMap charMap = player.getEntity().getCharacterMap("weapon_" + weapon.getPlayerAnim());
+        player.characterMaps = new Entity.CharacterMap[]{charMap};
+    }
+
+    public void startFire() {
+        weapon.setFiring(true);
+    }
+
+    public void stopFire() {
+        weapon.setFiring(false);
+    }
+}
+
+class RayListener implements RayCastCallback {
+    public Vector2 normal;
+
+    @Override
+    public float reportRayFixture(Fixture fixture, Vector2 point, Vector2 normal, float fraction) {
+        this.normal = normal;
+        return 0;
+    }
+
+    public boolean hit() {
+        return normal != null;
     }
 }

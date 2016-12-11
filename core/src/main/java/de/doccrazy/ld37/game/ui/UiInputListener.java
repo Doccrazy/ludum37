@@ -3,6 +3,8 @@ package de.doccrazy.ld37.game.ui;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
+import de.doccrazy.ld37.core.Resource;
+import de.doccrazy.ld37.game.actor.SVGLevelActor;
 import de.doccrazy.shared.core.Debug;
 import de.doccrazy.shared.game.world.GameState;
 
@@ -18,6 +20,7 @@ public class UiInputListener extends InputListener {
 		if (keycode == Keys.F12) {
             root.getRenderer().setRenderBox2dDebug(!root.getRenderer().isRenderBox2dDebug());
         } else if (keycode == Keys.ENTER) {
+			root.getWorld().setLevel(world -> new SVGLevelActor(world, Resource.GFX.testlevel, Resource.GFX.testlevelBg));
 			root.getWorld().resetAll();
 		} else if (keycode == Keys.ESCAPE) {
 			root.getWorld().transition(GameState.INIT);

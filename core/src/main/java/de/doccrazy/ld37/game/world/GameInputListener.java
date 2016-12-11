@@ -1,5 +1,6 @@
 package de.doccrazy.ld37.game.world;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -19,6 +20,9 @@ public class GameInputListener extends InputListener {
 
     @Override
     public boolean keyTyped(InputEvent event, char character) {
+        if (world.getGameState() != GameState.GAME) {
+            return false;
+        }
         return false;
     }
 
@@ -29,12 +33,17 @@ public class GameInputListener extends InputListener {
     }
 
     @Override
+    public void touchDragged(InputEvent event, float x, float y, int pointer) {
+        world.setMouseTarget(new Vector2(x, y));
+    }
+
+    @Override
     public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
         if (world.getGameState() != GameState.GAME) {
             return false;
         }
         if (button == 0) {
-            //world.getPlayer().setJump(true);
+            world.getPlayer().startFire();
             return true;
             //start = world.createAttachedPoint(new Vector2(x, y), 0.02f);
         }
@@ -50,7 +59,7 @@ public class GameInputListener extends InputListener {
             return;
         }
         if (button == 0) {
-            //world.getPlayer().setJump(false);
+            world.getPlayer().stopFire();
         }
     }
 

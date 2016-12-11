@@ -31,12 +31,12 @@ public class GameRenderer extends BaseGameRenderer<GameWorld> {
 
     @Override
     protected void init() {
-        world.rayHandler.setAmbientLight(new Color(0.5f, 0.5f, 0.5f, 1f));
+        world.rayHandler.setAmbientLight(new Color(0.6f, 0.5f, 0.5f, 1f));
     }
 
     @Override
 	protected void drawBackground(SpriteBatch batch) {
-		Gdx.gl.glClearColor(0, 0.1f, 0.2f, 1);
+		Gdx.gl.glClearColor(0.3f, 0.3f, 0.3f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         //Vector2 bgSize = bgScaling.apply(gameViewport.x, gameViewport.y, world.stage.getWidth(), world.stage.getHeight());
         //batch.draw(Resource.GFX.backgroundHigh, world.stage.getWidth() / 2 - bgSize.x / 2, 0, bgSize.x, bgSize.y);
