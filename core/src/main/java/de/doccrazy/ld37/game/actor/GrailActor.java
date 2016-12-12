@@ -36,6 +36,7 @@ public class GrailActor extends ShapeActor<GameWorld> implements CollisionListen
     @Override
     public boolean beginContact(Body me, Body other, Vector2 normal, Vector2 contactPoint) {
         if (other.getUserData() instanceof PlayerActor) {
+            world.getPlayer().heal();
             world.startEndSequence();
             kill();
         }

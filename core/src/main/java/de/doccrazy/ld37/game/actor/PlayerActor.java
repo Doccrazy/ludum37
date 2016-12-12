@@ -39,6 +39,7 @@ public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
     public static final float GLIDE_V_SCALE = 0.01f;
     public static final float MAX_WALL_ANGLE = MathUtils.cosDeg(15);
     public static final int CLIMB_SPEED = 5;
+    public static final float MAX_HEALTH = 500f;
 
     private MovementInputListener movement;
     private final GroundContactAction groundContact;
@@ -49,7 +50,7 @@ public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
     private boolean pinned;
     private float pinDirection;
     private Weapon weapon;
-    private float health = 500f;
+    private float health = MAX_HEALTH;
     private boolean drowning;
     private float slowEndTime = 0;
 
@@ -290,6 +291,10 @@ public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
 
     public void slow(float secs) {
         slowEndTime = stateTime + secs;
+    }
+
+    public void heal() {
+        health = MAX_HEALTH;
     }
 }
 
