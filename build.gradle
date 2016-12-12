@@ -48,3 +48,7 @@ project(":core") {
 tasks.eclipse.doLast {
     delete ".project"
 }
+
+wrapper {
+	gradleVersion = '3.1'
+}
