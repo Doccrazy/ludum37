@@ -20,7 +20,6 @@ public class GfxResources extends ResourcesBase {
 
     public XmlReader.Element testlevel = xml("levels/test.svg");
     public TextureRegion testlevelTex = new TextureRegion(textureFilterLinear("levels/test.png"));
-    public TextureRegion testlevelBg = new TextureRegion(textureFilterLinear("levels/testBg.png"));
     public TextureRegion victory = new TextureRegion(texture("victory.png"));
     public TextureRegion defeat = new TextureRegion(texture("defeat.png"));
 
