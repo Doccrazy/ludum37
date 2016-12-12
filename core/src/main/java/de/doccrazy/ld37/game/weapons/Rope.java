@@ -1,5 +1,7 @@
 package de.doccrazy.ld37.game.weapons;
 
+import com.badlogic.gdx.math.Vector2;
+
 public class Rope extends Weapon {
     public Rope() {
         fireRate = 0f;
@@ -12,7 +14,7 @@ public class Rope extends Weapon {
     }
 
     @Override
-    protected void spawnShot() {
+    protected void spawnShot(Vector2 spawn, Vector2 dir) {
         player.fireRope();
     }
 

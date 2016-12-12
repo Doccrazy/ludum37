@@ -22,7 +22,7 @@ public class FlameActor extends ShapeActor<GameWorld> implements CollisionListen
     private static final float RADIUS = 0.5f;
     private static final float LIFETIME = 1f;
     private static final float MAX_SCALE = 2f;
-    private static final float DPS = 50f;
+    private static final float DPS = 100f;
 
     private final Vector2 dir;
     private final Weapon weapon;
@@ -40,7 +40,7 @@ public class FlameActor extends ShapeActor<GameWorld> implements CollisionListen
     @Override
     protected BodyBuilder createBody(Vector2 spawn) {
         return BodyBuilder.forDynamic(spawn)
-                .velocity(dir.cpy().scl(5f)).rotation(MathUtils.random(0, (float) Math.PI))
+                .velocity(dir.cpy().scl(5f)).rotation(MathUtils.random(0, (float) Math.PI*2))
                 .gravityScale(0)
                 .fixShape(ShapeBuilder.circle(0.1f)).fixSensor().fixFilter(CollCategory.BULLET, ((short)(~CollCategory.BULLET)));
     }
@@ -51,6 +51,7 @@ public class FlameActor extends ShapeActor<GameWorld> implements CollisionListen
         float radius = Math.min(RADIUS, RADIUS * stateTime/LIFETIME * 1.33f + 0.1f);
         body.getFixtureList().get(0).getShape().setRadius(radius);
         setSize(radius * 2f, radius * 2f);
+        setOrigin(radius, radius);
         //setScale(Math.min(MAX_SCALE, MAX_SCALE * stateTime/LIFETIME * 1.33f + 0.1f));
         if (stateTime > LIFETIME) {
             kill();
@@ -65,7 +66,7 @@ public class FlameActor extends ShapeActor<GameWorld> implements CollisionListen
         batch.setColor(1f, 1f, 1f, 1f);
     }
 
-    private void applyDamage(Void x) {
+    private void applyDamage() {
         for (Damageable contact : contacts) {
             contact.damage(DPS/10f, weapon);
         }
@@ -73,13 +74,13 @@ public class FlameActor extends ShapeActor<GameWorld> implements CollisionListen
 
     @Override
     public boolean beginContact(Body me, Body other, Vector2 normal, Vector2 contactPoint) {
-        if (other.getType() == BodyDef.BodyType.StaticBody) {
+        if (other.getType() == BodyDef.BodyType.StaticBody && !other.getFixtureList().get(0).isSensor()) {
             kill();
         }
         if (other.getUserData() instanceof Damageable) {
             contacts.add((Damageable) other.getUserData());
         }
-        return false;
+        return true;
     }
 
     @Override

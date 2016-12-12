@@ -20,7 +20,6 @@ public class UiInputListener extends InputListener {
 		if (keycode == Keys.F12) {
             root.getRenderer().setRenderBox2dDebug(!root.getRenderer().isRenderBox2dDebug());
         } else if (keycode == Keys.ENTER) {
-			root.getWorld().setLevel(world -> new SVGLevelActor(world, Resource.GFX.testlevel, Resource.GFX.testlevelBg));
 			root.getWorld().resetAll();
 		} else if (keycode == Keys.ESCAPE) {
 			root.getWorld().transition(GameState.INIT);

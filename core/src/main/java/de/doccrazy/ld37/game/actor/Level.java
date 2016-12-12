@@ -1,5 +1,6 @@
 package de.doccrazy.ld37.game.actor;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -26,14 +27,14 @@ public abstract class Level extends Box2dActor<GameWorld> {
      * Gets a random point <b>inside</b> the level (i.e. the playable area)
      * @param avoidPlayer true to keep some distance away from the player character
      */
-    /*public Vector2 getRandomPoint(boolean avoidPlayer) {
+    public Vector2 getRandomPoint(boolean avoidPlayer) {
         Vector2 spawn;
         do {
-            spawn = new Vector2(MathUtils.random(getGrassBox().getX(), getGrassBox().getWidth() + getGrassBox().getX()),
-                    MathUtils.random(getGrassBox().getY(), getGrassBox().getHeight() + getGrassBox().getY()));
-        } while (excluded(spawn) || (avoidPlayer && spawn.dst(getSpawn()) < 2f));
+            spawn = new Vector2(MathUtils.random(getBoundingBox().getX(), getBoundingBox().getWidth() + getBoundingBox().getX()),
+                    MathUtils.random(getBoundingBox().getY(), getBoundingBox().getHeight() + getBoundingBox().getY()));
+        } while ((avoidPlayer && spawn.dst(getSpawn()) < 2f));
         return spawn;
-    }*/
+    }
 
     /**
      * Gets a random points <b>on the level borders</b>, i.e. outside the playable area

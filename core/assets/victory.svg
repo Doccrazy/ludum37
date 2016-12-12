@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1280"
+   height="720"
+   viewBox="0 0 1280 720.00001"
+   id="svg13800"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="victory.svg"
+   inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets\victory.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs13802" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="576.29738"
+     inkscape:cy="398.21037"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata13805">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-332.36216)">
+    <path
+       style="display:inline;opacity:1;fill:#d85700;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:4.43594599;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 617.88222,607.48131 -68.78409,1.00803 a 68.795527,68.795527 0 0 0 53.1303,65.89465 l 0,73.08922 a 34.738335,34.738335 0 0 0 -2.82907,1.42984 34.738335,34.738335 0 0 0 -17.61052,30.26814 l 34.73873,-0.0457 34.72392,0.91793 a 34.738335,34.738335 0 0 0 -16.84195,-30.70455 34.738335,34.738335 0 0 0 -3.58278,-1.83631 l 0,-72.51729 a 68.795527,68.795527 0 0 0 55.85566,-67.50508 l -68.8002,0 z"
+       id="path8758"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="D:\Code\Eclipse\ludum37\core\assets_src\grail.png"
+       inkscape:export-xdpi="399.07407"
+       inkscape:export-ydpi="399.07407" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#008000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="320"
+       y="489.50504"
+       id="text4144"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4146"
+         x="320"
+         y="489.50504"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:60px;font-family:Impact;-inkscape-font-specification:'Impact Condensed';stroke:#000000;fill:#008000;">Dr. Bones got lucky again!</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="347.14285"
+       y="903.79071"
+       id="text4148"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4150"
+         x="347.14285"
+         y="903.79071"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;font-family:'MV Boli';-inkscape-font-specification:'MV Boli';fill:#ff00cc">Thanks for playing!</tspan></text>
+  </g>
+</svg>

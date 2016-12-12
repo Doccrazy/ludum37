@@ -13,9 +13,8 @@ public class Flamethrower extends Weapon {
     }
 
     @Override
-    protected void spawnShot() {
-        Vector2 spawn = player.getBody().getPosition().cpy().mulAdd(aim, PlayerActor.RADIUS*1.2f);
-        player.getWorld().addActor(new FlameActor(player.getWorld(), spawn, aim.cpy().rotate(MathUtils.random(-5f, 5f)), this));
+    protected void spawnShot(Vector2 spawn, Vector2 dir) {
+        player.getWorld().addActor(new FlameActor(player.getWorld(), spawn, dir.rotate(MathUtils.random(-5f, 5f)), this));
     }
 
     @Override

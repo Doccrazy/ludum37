@@ -13,12 +13,13 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.brashmonkey.spriter.Entity;
 import de.doccrazy.ld37.core.Resource;
 import de.doccrazy.ld37.data.CollCategory;
+import de.doccrazy.ld37.game.actions.BurningAction;
 import de.doccrazy.ld37.game.weapons.Flamethrower;
+import de.doccrazy.ld37.game.weapons.RPG;
 import de.doccrazy.ld37.game.weapons.Rope;
 import de.doccrazy.ld37.game.weapons.Weapon;
 import de.doccrazy.ld37.game.world.GameWorld;
 import de.doccrazy.shared.game.actor.GroundContactAction;
-import de.doccrazy.shared.game.actor.ShapeActor;
 import de.doccrazy.shared.game.actor.SpriterActor;
 import de.doccrazy.shared.game.base.KeyboardMovementListener;
 import de.doccrazy.shared.game.base.MovementInputListener;
@@ -26,7 +27,7 @@ import de.doccrazy.shared.game.world.BodyBuilder;
 import de.doccrazy.shared.game.world.GameState;
 import de.doccrazy.shared.game.world.ShapeBuilder;
 
-public class PlayerActor extends SpriterActor<GameWorld> {
+public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
     public static final float RADIUS = 0.5f;
     private static final float VELOCITY = 5f;
     private static final float TORQUE = 2f;
@@ -48,6 +49,9 @@ public class PlayerActor extends SpriterActor<GameWorld> {
     private boolean pinned;
     private float pinDirection;
     private Weapon weapon;
+    private float health = 500f;
+    private boolean drowning;
+    private float slowEndTime = 0;
 
     public PlayerActor(GameWorld world, Vector2 spawn) {
         super(world, spawn, false, Resource.SPRITER.player, Resource.SPRITER::getDrawer);
@@ -66,7 +70,7 @@ public class PlayerActor extends SpriterActor<GameWorld> {
     @Override
     protected BodyBuilder createBody(Vector2 spawn) {
         return BodyBuilder.forDynamic(spawn)
-                .fixShape(ShapeBuilder.circle(RADIUS)).fixProps(3f, 0.1f, 1f).fixFilter(CollCategory.PLAYER_BODY, (short)-1);
+                .fixShape(ShapeBuilder.circle(RADIUS)).fixProps(3f, 0.1f, 1f).fixFilter(CollCategory.PLAYER, (short)-1);
     }
 
     public void setupKeyboardControl() {
@@ -82,6 +86,9 @@ public class PlayerActor extends SpriterActor<GameWorld> {
                 }
                 if (keycode == Input.Keys.NUM_2) {
                     setWeapon(new Flamethrower());
+                }
+                if (keycode == Input.Keys.NUM_3) {
+                    setWeapon(new RPG());
                 }
                 return super.keyDown(event, keycode);
             }
@@ -100,7 +107,10 @@ public class PlayerActor extends SpriterActor<GameWorld> {
         } else {
             body.setAngularVelocity(0);
         }
-        if (world.getMouseTarget() != null) {
+        if (currentAnchor != null && !currentAnchor.isDead()) {
+            orientation = Math.signum(currentAnchor.attachAngle().x);
+            currentAnchor.setMoveDir(-movement.getMovement().y);
+        } else if (world.getMouseTarget() != null) {
             orientation = Math.signum(world.getMouseTarget().x - body.getPosition().x);
         }
         if (body.getPosition().y + body.getFixtureList().get(0).getShape().getRadius() < world.getLevel().getBoundingBox().y) {
@@ -117,8 +127,18 @@ public class PlayerActor extends SpriterActor<GameWorld> {
         if (world.getMouseTarget() != null) {
             Vector2 aim = world.getMouseTarget().cpy().sub(body.getPosition());
             weapon.setAim(aim.cpy().nor());
-            float aimAngle = aim.scl(orientation).angle();
-            player.setBone("weapon", aimAngle);
+            float aimAngle = currentAnchor != null && !currentAnchor.isDead() ? currentAnchor.attachAngle().scl(orientation).angle() : aim.scl(orientation).angle();
+            try {
+                player.setBone("weapon", aimAngle);
+            } catch (NullPointerException ignore) {
+            }
+        }
+        if (weapon instanceof Rope) {
+            if (currentAnchor != null && !currentAnchor.isDead()) {
+                activateCharMap("weapon_hand");
+            } else {
+                activateCharMap("weapon_" + weapon.getPlayerAnim());
+            }
         }
     }
 
@@ -141,7 +161,7 @@ public class PlayerActor extends SpriterActor<GameWorld> {
                     || wallBottom.hit() && touching && mv.y < 0) ? mv.y*CLIMB_SPEED : 0);
         } else if (mv.x == 0 || Math.signum(mv.x) == Math.signum(orientation)) {
             if (groundContact.isTouchingFloor()) {
-                body.setAngularVelocity(-mv.x*VELOCITY);
+                body.setAngularVelocity(-mv.x*VELOCITY * (slowEndTime > stateTime ? 0.5f : 1f));
             } else {
                 if (Math.abs(v.x) < V_MAX_AIRCONTROL) {
                     body.applyForceToCenter(mv.x * AIR_CONTROL, 0f, true);
@@ -151,7 +171,7 @@ public class PlayerActor extends SpriterActor<GameWorld> {
         boolean jump = movement.pollJump();
         if (stateTime - lastJump > GroundContactAction.FLOOR_CONTACT_TTL && jump) {
             if (groundContact.isTouchingFloor() || (currentAnchor != null && currentAnchor.isAttached()) || pinned) {
-                addImpulse(0f, currentAnchor == null ? JUMP_IMPULSE : JUMP_IMPULSE/2f);
+                addImpulse(0f, (currentAnchor == null || currentAnchor.isDead()) && slowEndTime < stateTime ? JUMP_IMPULSE : JUMP_IMPULSE/2f);
                 lastJump = stateTime;
                 unattach();
                 //Resource.jump.play();
@@ -185,9 +205,21 @@ public class PlayerActor extends SpriterActor<GameWorld> {
         effect.draw(batch);
     }
 
-    public void damage(float amount) {
+    @Override
+    public void damage(float amount, Weapon weapon) {
+        health -= amount;
+        if (health < 0) {
+            kill();
+        }
+        System.out.println(health);
         //world.postEvent(new ParticleEvent(body.getPosition().x, body.getPosition().y, Resource.GFX.particles.get("explosion")));
-        kill();
+        //kill();
+        task.in(0, () -> {
+            unattach();
+            for (int i = 0; i < MathUtils.random(2, 4); i++) {
+                world.addActor(new BloodDropActor(world, body.getPosition()));
+            }
+        });
     }
 
     public void fireRope() {
@@ -205,26 +237,59 @@ public class PlayerActor extends SpriterActor<GameWorld> {
     }
 
     public void setWeapon(Weapon weapon) {
+        if (currentAnchor != null && !currentAnchor.isDead()) {
+            return;
+        }
         boolean firing = false;
         if (this.weapon != null) {
-            firing = weapon.isFiring();
-            weapon.setFiring(false);
-            removeAction(weapon);
+            firing = this.weapon.isFiring();
+            this.weapon.setFiring(false);
+            removeAction(this.weapon);
         }
         this.weapon = weapon;
         addAction(weapon);
-        weapon.setFiring(firing);
 
-        Entity.CharacterMap charMap = player.getEntity().getCharacterMap("weapon_" + weapon.getPlayerAnim());
+        activateCharMap("weapon_" + weapon.getPlayerAnim());
+    }
+
+    public void activateCharMap(String anim) {
+        Entity.CharacterMap charMap = player.getEntity().getCharacterMap(anim);
         player.characterMaps = new Entity.CharacterMap[]{charMap};
     }
 
     public void startFire() {
+        if (drowning || isDead()) {
+            return;
+        }
         weapon.setFiring(true);
     }
 
     public void stopFire() {
         weapon.setFiring(false);
+    }
+
+    public void lavaDeath() {
+        drowning = true;
+        unattach();
+        player.setAnimation("drown");
+        //body.setLinearVelocity(0, 0);
+        body.setLinearDamping(30f);
+        addAction(new BurningAction(Resource.GFX.partFire));
+        setzOrder(-10);
+        task.in(1.5f, () -> player.setAnimation("drown2"));
+        task.in(5f, this::kill);
+    }
+
+    public Vector2 getPoint(String name) {
+        try {
+            return new Vector2(player.getObject(name).position.x + getX() + getOriginX(), player.getObject(name).position.y + getY() + getOriginY());
+        } catch (NullPointerException e) {
+            return body.getPosition();
+        }
+    }
+
+    public void slow(float secs) {
+        slowEndTime = stateTime + secs;
     }
 }
 

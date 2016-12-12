@@ -1,10 +1,14 @@
 package de.doccrazy.ld37.game.world;
 
 import box2dLight.RayHandler;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import de.doccrazy.ld37.core.Resource;
 import de.doccrazy.ld37.data.GameRules;
+import de.doccrazy.ld37.game.actor.FallingDebrisActor;
 import de.doccrazy.ld37.game.actor.Level;
 import de.doccrazy.ld37.game.actor.PlayerActor;
+import de.doccrazy.ld37.game.actor.SVGLevelActor;
 import de.doccrazy.shared.game.actor.ParticleActor;
 import de.doccrazy.shared.game.actor.WorldActor;
 import de.doccrazy.shared.game.world.Box2dWorld;
@@ -21,6 +25,7 @@ public class GameWorld extends Box2dWorld<GameWorld> {
     private Vector2 mouseTarget;
     private Level level;
     private Function<GameWorld, Level> levelFactory;
+    private float endSequenceTime;
 
     public GameWorld() {
         super(GameRules.GRAVITY);
@@ -36,6 +41,7 @@ public class GameWorld extends Box2dWorld<GameWorld> {
                 break;
             case PRE_GAME:
                 level = levelFactory.apply(this);
+                endSequenceTime = 0;
                 addActor(level);
                 addActor(player = new PlayerActor(this, level.getSpawn()));
                 addActor(new ParticleActor(this));
@@ -59,7 +65,12 @@ public class GameWorld extends Box2dWorld<GameWorld> {
     @Override
     protected void doUpdate(float delta) {
     	switch (getGameState()) {
+        case INIT:
+            setLevel(world -> new SVGLevelActor(world, Resource.GFX.testlevel, Resource.GFX.testlevelTex, null));
     	case GAME:
+    	    if (isEndSequence()) {
+    	        addActor(new FallingDebrisActor(this, level.getRandomPoint(false), Resource.GFX.rocks[MathUtils.random(0, Resource.GFX.rocks.length - 1)], 2));
+            }
     	    if (player.isDead() || getRemainingTime() <= 0) {
     	        transition(GameState.DEFEAT);
     	    }
@@ -144,5 +155,17 @@ public class GameWorld extends Box2dWorld<GameWorld> {
     @Override
     public void addActor(WorldActor<GameWorld> actor) {
         super.addActor(actor);
+    }
+
+    public boolean isEndSequence() {
+        return endSequenceTime > 0;
+    }
+
+    public boolean isEndSequence2() {
+        return isEndSequence() && getStateTime() - endSequenceTime > 5f;
+    }
+
+    public void startEndSequence() {
+        this.endSequenceTime = getStateTime();
     }
 }

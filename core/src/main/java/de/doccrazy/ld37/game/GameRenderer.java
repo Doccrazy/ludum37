@@ -4,10 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Scaling;
 
+import de.doccrazy.ld37.core.Resource;
 import de.doccrazy.ld37.data.GameRules;
 import de.doccrazy.ld37.game.world.GameWorld;
 import de.doccrazy.ld37.game.world.ScreenShakeEvent;
@@ -24,6 +26,7 @@ public class GameRenderer extends BaseGameRenderer<GameWorld> {
 	private float camY;
     private boolean animateCamera;
 	private float shakeAmount = 0;
+	private float time;
 
     public GameRenderer(GameWorld world) {
         super(world, new Vector2(GameRules.LEVEL_WIDTH, GameRules.LEVEL_HEIGHT));
@@ -47,6 +50,9 @@ public class GameRenderer extends BaseGameRenderer<GameWorld> {
 	protected void beforeRender() {
         shakeAmount = shakeAmount * 0.91f;
         world.pollEvents(ScreenShakeEvent.class, screenShakeEvent -> shakeAmount += 0.1f);
+        if (world.isEndSequence()) {
+            shakeAmount = 0.05f;
+        }
 
 	    //zoom = MathUtils.clamp(zoom + zoomDelta*0.02f, 1f, 2f);
 
@@ -60,4 +66,19 @@ public class GameRenderer extends BaseGameRenderer<GameWorld> {
 
 	}
 
+    @Override
+    protected void renderFramebufferToScreen(SpriteBatch batch, FrameBuffer frameBuffer) {
+        float dt = Gdx.graphics.getDeltaTime();
+        time += dt;
+        float angle = time * (2 * MathUtils.PI);
+        if (angle > (2 * MathUtils.PI))
+            angle -= (2 * MathUtils.PI);
+
+        Resource.GFX.heatShader.begin();
+        Resource.GFX.heatShader.setUniformf("timedelta", -angle);
+        Resource.GFX.heatShader.end();
+
+        batch.setShader(Resource.GFX.heatShader);
+        super.renderFramebufferToScreen(batch, frameBuffer);
+    }
 }

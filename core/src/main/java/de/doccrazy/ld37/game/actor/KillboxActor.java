@@ -10,10 +10,12 @@ import de.doccrazy.shared.game.world.ShapeBuilder;
 
 public class KillboxActor extends ShapeActor<GameWorld> implements CollisionListener {
     private final Vector2[] poly;
+    private final boolean lava;
 
-    public KillboxActor(GameWorld world, Vector2[] poly) {
+    public KillboxActor(GameWorld world, Vector2[] poly, boolean lava) {
         super(world, Vector2.Zero, false);
         this.poly = poly;
+        this.lava = lava;
     }
 
     @Override
@@ -27,7 +29,15 @@ public class KillboxActor extends ShapeActor<GameWorld> implements CollisionList
     @Override
     public boolean beginContact(Body me, Body other, Vector2 normal, Vector2 contactPoint) {
         if (other.getUserData() == world.getPlayer()) {
-            world.getPlayer().damage(1f);
+            if (lava) {
+                world.getPlayer().lavaDeath();
+            } else {
+                for (int i = 0; i < 10; i++) {
+                    world.getPlayer().damage(100f, null);
+                }
+            }
+        } else if (other.getUserData() instanceof Damageable) {
+            ((Damageable) other.getUserData()).damage(1000f, null);
         }
         return false;
     }
@@ -38,5 +48,9 @@ public class KillboxActor extends ShapeActor<GameWorld> implements CollisionList
 
     @Override
     public void hit(float force) {
+    }
+
+    public void offsetY(float offs) {
+        body.setTransform(body.getPosition().x, body.getPosition().y + offs, body.getAngle());
     }
 }

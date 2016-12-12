@@ -9,9 +9,10 @@ import de.doccrazy.ld37.game.actor.PlayerActor;
 public abstract class Weapon extends Action {
     protected PlayerActor player;
     protected boolean firing;
-    protected float stateTime, lastShot = 0f;
+    protected float stateTime, lastShot = -99f;
     protected float fireRate, delay, fireVariation = 0f;
-    protected Vector2 aim;
+    protected String muzzleName = "muzzle_sm";
+    private Vector2 aim;
 
     @Override
     public void setActor(Actor actor) {
@@ -23,7 +24,9 @@ public abstract class Weapon extends Action {
     public boolean act(float delta) {
         stateTime += delta;
         while (firing && lastShot + (fireRate == 0f ? 0f : 1f/fireRate) <= stateTime) {
-            spawnShot();
+            Vector2 spawn = player.getPoint(muzzleName);
+            Vector2 dir = player.getWorld().getMouseTarget().cpy().sub(spawn).nor();
+            spawnShot(spawn, dir);
             if (fireRate == 0f) {
                 lastShot = 999999999f;
             } else {
@@ -48,7 +51,7 @@ public abstract class Weapon extends Action {
         this.aim = aim;
     }
 
-    protected abstract void spawnShot();
+    protected abstract void spawnShot(Vector2 spawn, Vector2 dir);
 
     public abstract String getPlayerAnim();
 }

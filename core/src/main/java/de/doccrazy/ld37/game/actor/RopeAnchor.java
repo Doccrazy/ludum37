@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.Joint;
+import com.badlogic.gdx.physics.box2d.joints.DistanceJoint;
 import com.badlogic.gdx.physics.box2d.joints.DistanceJointDef;
 import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
 import de.doccrazy.ld37.core.Resource;
@@ -20,14 +22,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RopeAnchor extends ShapeActor<GameWorld> implements CollisionListener {
-    public static final float RADIUS = 0.1f;
+    public static final float RADIUS = 0.07f;
     public static final float SPEED = 10f;
     public static final float MIN_LENGTH = 1.5f;
     public static final float MAX_FLY_TIME = 0.75f;
+    public static final float MOVE_LEN_PER_S = 2f;
 
     private final Vector2 dir;
     private List<Chain> chains = new ArrayList<>();
     private Body attachBody;
+    private Body endBody;
+    private float moveDir = 0;
+    private DistanceJoint distJoint;
 
     public RopeAnchor(GameWorld world, Vector2 spawn, Vector2 dir) {
         super(world, spawn, false);
@@ -51,14 +57,18 @@ public class RopeAnchor extends ShapeActor<GameWorld> implements CollisionListen
         if (!isAttached() && stateTime > MAX_FLY_TIME) {
             kill();
         }
+        if (isAttached()) {
+            distJoint.setLength(distJoint.getLength() + moveDir * delta * MOVE_LEN_PER_S);
+        }
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         batch.end();
-        if (chains.isEmpty()) {
+        if (!isAttached()) {
             PolyLineRenderer.drawLine(Arrays.asList(world.getPlayer().getBody().getPosition(), body.getPosition()), RADIUS, batch.getProjectionMatrix(), Resource.GFX.rope);
         } else {
+            PolyLineRenderer.drawLine(Arrays.asList(world.getPlayer().getBody().getPosition(), endBody.getPosition()), RADIUS, batch.getProjectionMatrix(), Resource.GFX.rope);
             for (Chain chain: chains) {
                 if (chain.length() < 2) {
                     continue;
@@ -99,9 +109,9 @@ public class RopeAnchor extends ShapeActor<GameWorld> implements CollisionListen
         DistanceJointDef jointDef = new DistanceJointDef();
         jointDef.localAnchorA.x = 0;
         jointDef.localAnchorB.x = 0;
-        jointDef.length = radius*2 + spacing/2f;
-        jointDef.frequencyHz = 60;
-        jointDef.dampingRatio = 0.8f;
+        jointDef.length = radius*2 + spacing/4f;
+        jointDef.frequencyHz = 100;
+        jointDef.dampingRatio = 0.9f;
         Chain.DefBuilder builder = new Chain.DefBuilder(world.box2dWorld, null, null, jointDef);
         Chain chain = new Chain(builder);
         chain.add(startBody);
@@ -116,13 +126,34 @@ public class RopeAnchor extends ShapeActor<GameWorld> implements CollisionListen
     }
 
     private void attach(Body attachEnd, Vector2 contactPoint) {
-        Body endBody = createLinkBody(contactPoint).build(world);
-        createChain(world.getPlayer().getBody(), endBody, RADIUS, RADIUS);
+        endBody = createLinkBody(contactPoint).build(world);
+        createRope(world.getPlayer().getBody(), endBody, RADIUS, RADIUS);
+        //createChain(world.getPlayer().getBody(), endBody, RADIUS, RADIUS);
         attach(endBody, attachEnd, contactPoint);
     }
 
+    private void createRope(Body startBody, Body endBody, float radius, float spacing) {
+        DistanceJointDef jointDef = new DistanceJointDef();
+        jointDef.bodyA = startBody;
+        jointDef.bodyB = endBody;
+        jointDef.localAnchorA.x = 0;
+        jointDef.localAnchorB.x = 0;
+        jointDef.length = startBody.getPosition().dst(endBody.getPosition());
+        jointDef.frequencyHz = 60;
+        jointDef.dampingRatio = 1f;
+        distJoint = (DistanceJoint) world.box2dWorld.createJoint(jointDef);
+    }
+
     public boolean isAttached() {
-        return !chains.isEmpty();
+        //return !chains.isEmpty();
+        return endBody != null;
+    }
+
+    public Vector2 attachAngle() {
+//        return chains.isEmpty() ? body.getPosition().cpy().sub(world.getPlayer().getBody().getPosition()).nor() :
+//                chains.get(0).getSegment(1).getPosition().cpy().sub(chains.get(0).getSegment(0).getPosition()).nor();
+        return !isAttached() ? body.getPosition().cpy().sub(world.getPlayer().getBody().getPosition()).nor() :
+                endBody.getPosition().cpy().sub(world.getPlayer().getBody().getPosition()).nor();
     }
 
     @Override
@@ -131,11 +162,14 @@ public class RopeAnchor extends ShapeActor<GameWorld> implements CollisionListen
         for (Chain chain : chains) {
             chain.destroy(1, chain.length() - 1);
         }
+        if (isAttached()) {
+            world.box2dWorld.destroyBody(endBody);
+        }
     }
 
     @Override
     public boolean beginContact(Body me, Body other, Vector2 normal, Vector2 contactPoint) {
-        if (other.getType() == BodyDef.BodyType.StaticBody && !isAttached()) {
+        if (other.getType() == BodyDef.BodyType.StaticBody && !other.getFixtureList().get(0).isSensor() && !isAttached()) {
             attachBody = other;
         }
         return false;
@@ -149,5 +183,9 @@ public class RopeAnchor extends ShapeActor<GameWorld> implements CollisionListen
     @Override
     public void hit(float force) {
 
+    }
+
+    public void setMoveDir(float moveDir) {
+        this.moveDir = moveDir;
     }
 }

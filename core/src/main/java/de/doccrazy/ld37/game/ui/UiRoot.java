@@ -23,6 +23,8 @@ public class UiRoot extends UiBase<GameWorld, GameRenderer, GameInputListener> {
         //add(new ScoreLabel(world)).pad(5);
         row().expandY();
         stage.addActor(new IntroScreen(this));
+		stage.addActor(new DefeatScreen(this));
+		stage.addActor(new VictoryScreen(this));
 
         /*getStage().addActor(new DeathLabel(getWorld()));
         getStage().addActor(new DeathLabel2(getWorld()));*/
