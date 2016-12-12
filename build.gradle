@@ -10,7 +10,7 @@ allprojects {
     ext {
         appName = 'ludum37'
         gdxVersion = '1.9.4'
-        ludumSharedVersion = '1.4-SNAPSHOT'
+        ludumSharedVersion = '1.5-SNAPSHOT'
     }
 
     configurations.all {
