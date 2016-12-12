@@ -1,17 +1,15 @@
 package de.doccrazy.ld37.game.ui;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import de.doccrazy.ld37.core.Resource;
 import de.doccrazy.shared.game.world.GameState;
 
-public class VictoryScreen extends Widget {
+public class VictoryEmptyScreen extends Widget {
     private final UiRoot uiRoot;
     private float stateTime;
 
-    public VictoryScreen(UiRoot uiRoot) {
+    public VictoryEmptyScreen(UiRoot uiRoot) {
         this.uiRoot = uiRoot;
         setFillParent(true);
     }
@@ -19,7 +17,7 @@ public class VictoryScreen extends Widget {
     @Override
     public void act(float delta) {
         super.act(delta);
-        boolean vis = uiRoot.getWorld().getGameState() == GameState.VICTORY && uiRoot.getWorld().isEndSequence();
+        boolean vis = uiRoot.getWorld().getGameState() == GameState.VICTORY && !uiRoot.getWorld().isEndSequence();
         setVisible(vis);
         if (vis) {
             stateTime += delta;
@@ -31,7 +29,7 @@ public class VictoryScreen extends Widget {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
-        batch.draw(Resource.GFX.victory, getX(), getY(), getWidth(), getHeight());
+        batch.draw(Resource.GFX.victoryEmpty, getX(), getY(), getWidth(), getHeight());
         /*TextureRegion sprite = uiRoot.getWorld().isGameOver() ? Resource.GFX.thanksTx : Resource.GFX.continueTx;
         if (stateTime >= 1f) {
             float scale = Interpolation.bounceOut.apply(6f, 1f, Math.max(stateTime - 1f, 0));

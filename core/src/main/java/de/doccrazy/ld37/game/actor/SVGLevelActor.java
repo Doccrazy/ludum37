@@ -28,6 +28,7 @@ public class SVGLevelActor extends Level {
     public static final String LAYER_META = "Meta";
     public static final String LABEL_SCREEN = "screen";
     public static final String LABEL_SPAWN = "spawn";
+    public static final String LABEL_SPAWN2 = "spawn2";
     public static final String PREFIX_PARTICLE = "part:";
     public static final String PREFIX_PARTICLE_BG = "partBg:";
 
@@ -56,7 +57,7 @@ public class SVGLevelActor extends Level {
 
         SVGLayer metaLayer = rootLayer.getLayerByLabel(LAYER_META);
 
-        spawn = metaLayer.getRectCenter(LABEL_SPAWN);
+        spawn = metaLayer.getRectCenter(world.isSecondSpawn() ? LABEL_SPAWN2 : LABEL_SPAWN);
         Vector2[] boundsPoly = metaLayer.getRectAsPoly(LABEL_SCREEN);
         cameraBounds = new Rectangle(boundsPoly[0].x, boundsPoly[0].y, boundsPoly[2].x - boundsPoly[0].x, boundsPoly[2].y - boundsPoly[0].y);
 

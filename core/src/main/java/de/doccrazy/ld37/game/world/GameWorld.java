@@ -26,6 +26,7 @@ public class GameWorld extends Box2dWorld<GameWorld> {
     private Level level;
     private Function<GameWorld, Level> levelFactory;
     private float endSequenceTime;
+    private boolean secondSpawn;
 
     public GameWorld() {
         super(GameRules.GRAVITY);
@@ -167,5 +168,10 @@ public class GameWorld extends Box2dWorld<GameWorld> {
 
     public void startEndSequence() {
         this.endSequenceTime = getStateTime();
+        secondSpawn = true;
+    }
+
+    public boolean isSecondSpawn() {
+        return secondSpawn;
     }
 }
