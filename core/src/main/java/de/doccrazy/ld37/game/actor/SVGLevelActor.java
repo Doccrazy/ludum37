@@ -124,9 +124,11 @@ public class SVGLevelActor extends Level {
             lights.add(light);
         });
 
-        task.in(0.5f, () -> world.postEvent(new HelpEvent("Hint: Press 1 / 2 / 3 to switch weapon / tool")));
-        task.in(8, () -> world.postEvent(new HelpEvent("They just keep coming!!\n\nI might have something more useful in my 3rd pocket...")));
-        task.in(20, () -> world.postEvent(new HelpEvent("That looks dangerously far away...\n\nI better use my whip [1] to swing across.")));
+        if (!world.isSecondSpawn()) {
+            task.in(0.5f, () -> world.postEvent(new HelpEvent("Hint: Press 1 / 2 / 3 to switch weapon / tool")));
+            task.in(8, () -> world.postEvent(new HelpEvent("They just keep coming!!\n\nI might have something more useful in my 3rd pocket...")));
+            task.in(20, () -> world.postEvent(new HelpEvent("That looks dangerously far away...\n\nI better use my whip [1] to swing across.")));
+        }
     }
 
     private void addLava(Rectangle rect, boolean end) {
