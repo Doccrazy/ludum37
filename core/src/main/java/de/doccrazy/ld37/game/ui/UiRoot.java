@@ -1,8 +1,10 @@
 package de.doccrazy.ld37.game.ui;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+import de.doccrazy.ld37.core.Resource;
 import de.doccrazy.ld37.game.GameRenderer;
 import de.doccrazy.ld37.game.world.FloatingTextEvent;
 import de.doccrazy.ld37.game.world.GameInputListener;
@@ -32,6 +34,8 @@ public class UiRoot extends UiBase<GameWorld, GameRenderer, GameInputListener> {
 
         /*getStage().addActor(new DeathLabel(getWorld()));
         getStage().addActor(new DeathLabel2(getWorld()));*/
+
+        Gdx.graphics.setCursor(Gdx.graphics.newCursor(Resource.GFX.crosshair, 16, 16));
     }
 
     @Override

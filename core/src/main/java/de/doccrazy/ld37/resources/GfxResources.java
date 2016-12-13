@@ -1,6 +1,7 @@
 package de.doccrazy.ld37.resources;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.ParticleEffectPool;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -40,6 +41,8 @@ public class GfxResources extends ResourcesBase {
             getAtlas().createSprite("rock2"), getAtlas().createSprite("rock3")};
     public Sprite spike = getAtlas().createSprite("spike");
     public Sprite grail = getAtlas().createSprite("grail");
+
+    public Pixmap crosshair = new Pixmap(Gdx.files.internal("crosshair.png"));
 
     public Map<String, ParticleEffectPool> particles = new HashMap<String, ParticleEffectPool>() {{
         put("fire", particle("fire.p", 0.01f));
