@@ -211,7 +211,7 @@ public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
 
     @Override
     public void damage(float amount, Weapon weapon) {
-        world.postEvent(new FloatingTextEvent(body.getPosition().x, body.getPosition().y + RADIUS, Float.toString((int)amount), false, false));
+        world.postEvent(new FloatingTextEvent(body.getPosition().x + MathUtils.random(-RADIUS/2, RADIUS/2), body.getPosition().y + RADIUS, Float.toString((int)amount), false, false));
         health -= amount;
         if (health < 0) {
             kill();
