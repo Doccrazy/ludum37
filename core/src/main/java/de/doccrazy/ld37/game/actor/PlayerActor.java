@@ -80,8 +80,8 @@ public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
                 if (keycode == Input.Keys.E && (groundContact.isTouchingLeftWall() || groundContact.isTouchingRightWall())) {
-                    pinned = true;
-                    pinDirection = groundContact.isTouchingLeftWall() ? -1 : 1;
+                    //pinned = true;
+                    //pinDirection = groundContact.isTouchingLeftWall() ? -1 : 1;
                 }
                 if (keycode == Input.Keys.NUM_1) {
                     setWeapon(new Rope());
@@ -104,16 +104,18 @@ public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
 
     @Override
     protected void doAct(float delta) {
-        if (movement != null && world.getGameState() == GameState.GAME) {
-            move(delta);
-        } else {
-            body.setAngularVelocity(0);
-        }
-        if (currentAnchor != null && !currentAnchor.isDead()) {
-            orientation = Math.signum(currentAnchor.attachAngle().x);
-            currentAnchor.setMoveDir(-movement.getMovement().y);
-        } else if (world.getMouseTarget() != null) {
-            orientation = Math.signum(world.getMouseTarget().x - body.getPosition().x);
+        if (!drowning) {
+            if (movement != null && world.getGameState() == GameState.GAME) {
+                move(delta);
+            } else {
+                body.setAngularVelocity(0);
+            }
+            if (currentAnchor != null && !currentAnchor.isDead()) {
+                orientation = Math.signum(currentAnchor.attachAngle().x);
+                currentAnchor.setMoveDir(-movement.getMovement().y);
+            } else if (world.getMouseTarget() != null) {
+                orientation = Math.signum(world.getMouseTarget().x - body.getPosition().x);
+            }
         }
         if (body.getPosition().y + body.getFixtureList().get(0).getShape().getRadius() < world.getLevel().getBoundingBox().y) {
             kill();
@@ -239,7 +241,7 @@ public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
     }
 
     public void setWeapon(Weapon weapon) {
-        if (currentAnchor != null && !currentAnchor.isDead()) {
+        if ((currentAnchor != null && !currentAnchor.isDead()) || drowning || isDead()) {
             return;
         }
         boolean firing = false;
