@@ -18,6 +18,7 @@ import de.doccrazy.ld37.game.weapons.Flamethrower;
 import de.doccrazy.ld37.game.weapons.RPG;
 import de.doccrazy.ld37.game.weapons.Rope;
 import de.doccrazy.ld37.game.weapons.Weapon;
+import de.doccrazy.ld37.game.world.FloatingTextEvent;
 import de.doccrazy.ld37.game.world.GameWorld;
 import de.doccrazy.shared.game.actor.GroundContactAction;
 import de.doccrazy.shared.game.actor.SpriterActor;
@@ -208,11 +209,11 @@ public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
 
     @Override
     public void damage(float amount, Weapon weapon) {
+        world.postEvent(new FloatingTextEvent(body.getPosition().x, body.getPosition().y + RADIUS, Float.toString((int)amount), false, false));
         health -= amount;
         if (health < 0) {
             kill();
         }
-        System.out.println(health);
         //world.postEvent(new ParticleEvent(body.getPosition().x, body.getPosition().y, Resource.GFX.particles.get("explosion")));
         //kill();
         task.in(0, () -> {
@@ -295,6 +296,10 @@ public class PlayerActor extends SpriterActor<GameWorld> implements Damageable {
 
     public void heal() {
         health = MAX_HEALTH;
+    }
+
+    public float getHealth() {
+        return health;
     }
 }
 

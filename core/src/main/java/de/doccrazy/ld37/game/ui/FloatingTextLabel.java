@@ -17,7 +17,7 @@ public class FloatingTextLabel extends Label {
     private int direction;
 
     public FloatingTextLabel(Stage stage, String text, Vector2 pos, int direction) {
-        super(text, new LabelStyle(new BitmapFont(), new Color(1f, 0.7f, 0f, 0.75f)));
+        super(text, new LabelStyle(new BitmapFont(), new Color(1f, 0f, 0f, 0.75f)));
         this.direction = direction;
         stage.addActor(this);
         setAlignment(Align.center);

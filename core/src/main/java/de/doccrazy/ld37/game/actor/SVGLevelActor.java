@@ -17,6 +17,7 @@ import com.badlogic.gdx.utils.XmlReader;
 import de.doccrazy.ld37.core.Resource;
 import de.doccrazy.ld37.data.GameRules;
 import de.doccrazy.ld37.game.world.GameWorld;
+import de.doccrazy.ld37.game.world.HelpEvent;
 import de.doccrazy.ld37.game.world.RandomEvent;
 import de.doccrazy.shared.game.svg.SVGLayer;
 
@@ -122,6 +123,10 @@ public class SVGLevelActor extends Level {
             light.setXray(false);
             lights.add(light);
         });
+
+        task.in(0.5f, () -> world.postEvent(new HelpEvent("Hint: Press 1 / 2 / 3 to switch weapon / tool")));
+        task.in(8, () -> world.postEvent(new HelpEvent("They just keep coming!!\n\nI might have something more useful in my 3rd pocket...")));
+        task.in(20, () -> world.postEvent(new HelpEvent("That looks dangerously far away...\n\nI better use my whip [1] to swing across.")));
     }
 
     private void addLava(Rectangle rect, boolean end) {

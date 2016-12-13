@@ -7,14 +7,14 @@ import de.doccrazy.ld37.core.Resource;
 import de.doccrazy.ld37.game.world.GameWorld;
 import de.doccrazy.shared.game.world.GameState;
 
-public class TimerLabel extends Label {
+public class HealthLabel extends Label {
 	private GameWorld world;
 
-	public TimerLabel(GameWorld world) {
+	public HealthLabel(GameWorld world) {
 		super("", new LabelStyle(Resource.FONT.retroSmall, new Color(1f, 1f, 1f, 0.7f)));
 		this.world = world;
 
-		setAlignment(Align.right);
+		setAlignment(Align.left);
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class TimerLabel extends Label {
 		super.act(delta);
         setVisible(world.getGameState() == GameState.GAME || world.isGameFinished());
 
-		setText("Time: " + (int)(world.getRemainingTime()));
+		setText("Health: " + Math.max(0, (int)(world.getPlayer().getHealth())));
 	}
 
 }

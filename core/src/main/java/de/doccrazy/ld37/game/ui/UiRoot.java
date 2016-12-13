@@ -12,37 +12,41 @@ import de.doccrazy.shared.game.ui.UiBase;
 public class UiRoot extends UiBase<GameWorld, GameRenderer, GameInputListener> {
     //private Toolbar toolbar;
 
-	public UiRoot(Stage stage, GameWorld world, GameRenderer renderer) {
-		super(stage, world, renderer);
+    public UiRoot(Stage stage, GameWorld world, GameRenderer renderer) {
+        super(stage, world, renderer);
 
         /*toolbar = new Toolbar(this);
         toolbar.setVisible(false);
         left().add(toolbar);*/
 
-        //add(new TimerLabel(world)).expandX().center();
         //add(new ScoreLabel(world)).pad(5);
         row().expandY();
+        add(new HelpLabel(world)).expandX().center();
+        row().expandY();
+        add(new HealthLabel(world)).expandX().bottom().left();
+
         stage.addActor(new IntroScreen(this));
-		stage.addActor(new DefeatScreen(this));
-		stage.addActor(new VictoryScreen(this));
+        stage.addActor(new DefeatScreen(this));
+        stage.addActor(new VictoryScreen(this));
+        stage.addActor(new VictoryEmptyScreen(this));
 
         /*getStage().addActor(new DeathLabel(getWorld()));
         getStage().addActor(new DeathLabel2(getWorld()));*/
-	}
+    }
 
-	@Override
-	public void act(float delta) {
-		super.act(delta);
-		getWorld().pollEvents(FloatingTextEvent.class, event -> new FloatingTextLabel(this, event));
-	}
+    @Override
+    public void act(float delta) {
+        super.act(delta);
+        getWorld().pollEvents(FloatingTextEvent.class, event -> new FloatingTextLabel(this, event));
+    }
 
-	@Override
-	protected InputListener createUiInput() {
-		return new UiInputListener(this);
-	}
+    @Override
+    protected InputListener createUiInput() {
+        return new UiInputListener(this);
+    }
 
-	@Override
-	protected GameInputListener createGameInput() {
-	    return new GameInputListener(this);
-	}
+    @Override
+    protected GameInputListener createGameInput() {
+        return new GameInputListener(this);
+    }
 }
