@@ -47,6 +47,7 @@ public class SVGLevelActor extends Level {
         super(world);
         this.levelTexture = levelTexture;
         this.levelBgTexture = levelBgTexture;
+        setzOrder(-1);
 
         SVGLayer rootLayer = new SVGLayer(levelElement);
         Vector2 cameraBoundsForScale = rootLayer.getLayerByLabel(LAYER_META).getRectSizeImmediate(LABEL_SCREEN);

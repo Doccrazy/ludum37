@@ -48,6 +48,10 @@ public class GameRenderer extends BaseGameRenderer<GameWorld> {
 
 	@Override
 	protected void beforeRender() {
+        float h = world.getPlayer().getY() / world.getLevel().getBoundingBox().height;
+        System.out.println(h/2f);
+        world.rayHandler.setAmbientLight(new Color(0.5f + h/2.1f, 0.4f + h/2, 0.4f + h/2, 1f));
+
         shakeAmount = shakeAmount * 0.91f;
         world.pollEvents(ScreenShakeEvent.class, screenShakeEvent -> shakeAmount += 0.1f);
         if (world.isEndSequence()) {
