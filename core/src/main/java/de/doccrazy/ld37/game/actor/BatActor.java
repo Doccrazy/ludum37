@@ -21,6 +21,7 @@ public class BatActor extends SpriterActor<GameWorld> implements Damageable, Col
     private boolean dying;
     private float hp = 50f;
     private Vector2 pushNormal;
+    private boolean cooldown;
 
     public BatActor(GameWorld world, Vector2 spawn) {
         super(world, spawn, false, Resource.SPRITER.bat, Resource.SPRITER::getDrawer);
@@ -82,7 +83,13 @@ public class BatActor extends SpriterActor<GameWorld> implements Damageable, Col
     @Override
     public boolean beginContact(Body me, Body other, Vector2 normal, Vector2 contactPoint) {
         if (other.getUserData() instanceof PlayerActor && !dying) {
-            ((PlayerActor) other.getUserData()).damage(10f, null);
+            if (!cooldown) {
+                ((PlayerActor) other.getUserData()).damage(10f, null);
+                cooldown = true;
+                task.in(0.5f, () -> {
+                    cooldown = false;
+                });
+            }
             pushNormal = body.getPosition().cpy().sub(other.getPosition()).nor();
         }
         return false;

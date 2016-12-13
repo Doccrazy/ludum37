@@ -22,7 +22,7 @@ public class CrackyPlatformActor extends ShapeActor<GameWorld> implements Collis
     @Override
     protected BodyBuilder createBody(Vector2 spawn) {
         return BodyBuilder.forStatic(spawn)
-                .fixShape(ShapeBuilder.box(0.6f, 0.1f)).fixProps(1f, 0f, 1f);
+                .fixShape(ShapeBuilder.box(0.6f, 0.1f)).fixProps(3f, 0f, 1f);
     }
 
     @Override

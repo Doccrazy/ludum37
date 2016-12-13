@@ -13,7 +13,7 @@ import de.doccrazy.shared.game.world.ShapeBuilder;
 public class SpikeDropperActor extends ShapeActor<GameWorld> implements CollisionListener {
     private final Rectangle rect;
     private boolean playerIn;
-    private RandomEvent spawnEvent = new RandomEvent(0.25f, 0.5f);
+    private RandomEvent spawnEvent = new RandomEvent(0.5f, 0.75f);
 
     public SpikeDropperActor(GameWorld world, Rectangle rect) {
         super(world, rect.getCenter(new Vector2()), false);

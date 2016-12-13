@@ -41,7 +41,7 @@ public class FallingSpike extends ShapeActor<GameWorld> implements CollisionList
     public boolean beginContact(Body me, Body other, Vector2 normal, Vector2 contactPoint) {
         if (other.getUserData() instanceof PlayerActor) {
             kill();
-            world.getPlayer().damage(50f, null);
+            world.getPlayer().damage(10f, null);
             world.getPlayer().slow(0.5f);
         }
         return false;

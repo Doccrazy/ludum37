@@ -16,7 +16,7 @@ public class BatCaveActor extends ShapeActor<GameWorld> implements Damageable {
     private static final float MAX_DIST = 10f;
 
     private final float spawnRadius;
-    private final RandomEvent spawnTimer = new RandomEvent(0.5f, 3f);
+    private final RandomEvent spawnTimer = new RandomEvent(1f, 5f);
     private float health = 250f;
 
     public BatCaveActor(GameWorld world, Vector2 spawn, float spawnRadius) {

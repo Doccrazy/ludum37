@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class FogActor extends ShapeActor<GameWorld> implements Damageable, CollisionListener {
-    private static final float DPS = 50f;
+    private static final float DPS = 25f;
 
     private Tasker.OnceTaskDef expireTask;
     private float alpha = 1f;
